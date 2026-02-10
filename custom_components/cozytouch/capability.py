@@ -742,18 +742,18 @@ def get_capability_infos(modelInfos: dict, capabilityId: int, capabilityValue: s
         capability["step"] = 5
 
     elif capabilityId == 105906:
-        capability["name"] = "Target 105906"
+        capability["name"] = "target_temperature"
         capability["type"] = "temperature_percent_adjustment_number"
         capability["category"] = "sensor"
         capability["temperatureMin"] = 15.0
-        capability["temperatureMax"] = 65.0
+        capability["temperatureMax"] = 70.0
 
     elif capabilityId == 105907:
-        capability["name"] = "Target 105907"
+        capability["name"] = "target_temperature_eco"
         capability["type"] = "temperature_percent_adjustment_number"
         capability["category"] = "sensor"
         capability["temperatureMin"] = 15.0
-        capability["temperatureMax"] = 65.0
+        capability["temperatureMax"] = 70.0
 
     # For test
     elif capabilityId == 312:
