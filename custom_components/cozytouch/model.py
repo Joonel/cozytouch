@@ -431,6 +431,7 @@ def get_model_infos(modelId: int, zoneName: str | None = None):
     elif modelId == 1983:
         modelInfos["name"] = "ST CUBE WIFI WM 100L W 2400W"
         modelInfos["type"] = CozytouchDeviceType.WATER_HEATER
+        modelInfos["v40WaterAvailable"] = False
         modelInfos["HVACModes"] = {
             0: HVACMode.OFF,
             4: HVACMode.HEAT,
