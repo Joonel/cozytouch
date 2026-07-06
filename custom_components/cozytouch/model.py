@@ -185,12 +185,21 @@ def get_model_infos(modelId: int, zoneName: str | None = None):
             0: HVACMode.OFF,
         }
 
-    elif modelId >= 557 and modelId <= 561:
+    elif modelId == 1457:
+        modelInfos["name"] = "HUB Cozytouch"
+        modelInfos["type"] = CozytouchDeviceType.HUB
+        modelInfos["HVACModes"] = {
+            0: HVACMode.OFF,
+        }
+        
+    elif (modelId >= 557 and modelId <= 561) or modelId == 1734:
         name = "Air Conditioner "
         if zoneName is not None:
             modelInfos["name"] = name + "(" + zoneName + ")"
-        else:
+        elif modelId <= 561:
             modelInfos["name"] = name + "(#" + str(modelId - 556) + ")"
+        else:
+            modelInfos["name"] = name + "(#" + str(modelId - 1733) + ")"
 
         modelInfos["type"] = CozytouchDeviceType.AC
         modelInfos["currentTemperatureAvailable"] = False
@@ -336,7 +345,21 @@ def get_model_infos(modelId: int, zoneName: str | None = None):
             0: HVACMode.OFF,
             4: HVACMode.HEAT,
         }
-   
+       
+    elif modelId == 1641:
+        modelInfos["name"] = "Atlantic Explorer V5 (200L)"
+        modelInfos["type"] = CozytouchDeviceType.WATER_HEATER
+        modelInfos["HVACModes"] = {
+            0: HVACMode.OFF,
+            4: HVACMode.HEAT,
+        }
+
+        modelInfos["HeatingModes"] = {
+            0: HEATING_MODE_MANUAL,
+            3: HEATING_MODE_ECO_PLUS,
+            4: HEATING_MODE_PROG,
+        }
+       
     elif modelId == 1642:
         modelInfos["name"] = "Atlantic Explorer V5 (270L)"
         modelInfos["type"] = CozytouchDeviceType.WATER_HEATER
@@ -442,7 +465,19 @@ def get_model_infos(modelId: int, zoneName: str | None = None):
             3: HEATING_MODE_ECO_PLUS,
             4: HEATING_MODE_PROG,
         }
-   
+
+    elif modelId == 1957:
+        modelInfos["name"] = "LINEO CONNECTE MP 100L 2250W"
+        modelInfos["type"] = CozytouchDeviceType.WATER_HEATER
+        modelInfos["HVACModes"] = {
+            0: HVACMode.OFF,
+            4: HVACMode.HEAT,
+        }
+
+        modelInfos["HeatingModes"] = {
+            0: HEATING_MODE_MANUAL,
+            3: HEATING_MODE_ECO_PLUS,
+        }
     else:
         modelInfos["name"] = "Unknown product (" + str(modelId) + ")"
         modelInfos["type"] = CozytouchDeviceType.UNKNOWN
